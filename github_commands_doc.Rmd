@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: "Git commands and workflow"
+=======
+title: "Github commands"
+>>>>>>> bb435f55c542977bdf1dd0664f82b0128b915df3
 author: "OEB"
 date: "October 25, 2017"
 output:
@@ -32,11 +36,15 @@ The `.gitignore` file contains a list of filenames that will be ignored and not 
 
 **untracking a single file**    
 
+## Untracking files in hindsight
+
+**untracking a single file:**  
+
 ```{}
 git rm --cached [file_name]
 ```
 
-**untracking all files in a directory**  
+**untracking all files in a directory** 
 
 ```{}
 git rm --cached inst/\*
