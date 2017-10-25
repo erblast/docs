@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 title: "Git commands and workflow"
-=======
-title: "Github commands"
->>>>>>> bb435f55c542977bdf1dd0664f82b0128b915df3
 author: "OEB"
 date: "October 25, 2017"
 output:
@@ -22,37 +18,97 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
 ```
+# IDE vs Shell
+So far I was not happy with all the IDEs (Rstudio/Gitkraken/Github desktop) that I have tested. They provide some convenient shortcuts but in the end they tended to screw things up for me. That is why I am writing this documentation.
 
-# .gitignore
+# The git repository
+The git repository is your project folder, it contains some hidden files and folders that are used by git to track your commits and the branches. If you run git and open your repository you can set the folder to mirror commits or branches. This will actually change the files that you can find with your system explorer.
+
+
+# Setup your git repository (when using a remote repository)
+Git gets tricky if you have multiple users or if you synchronize with a remote repository. You constantly have to consider which branch you are in and if you have commited everything and pulled before commit and pushed and merged. It is complicated. To reduce the complexity I would try to do everything you can in the remote repository GUI. On github this means creating the repository itself and all branches directly on github. This means that you do not have to worry about connecting local branches and reposiotries to the remote repository.
+
+## clone a repository
+
+open the directory you want to clone the repository in right click and select `git bash here`
+
+```{}
+git clone https://github.com/erblast/oetteR.git
+```
+## .gitignore
 
 The `.gitignore` file contains a list of filenames that will be ignored and not and not tracked by git. When you are starting a git project it easy to skip this important file. It is however crucial to set it up before you start coding away. Once you are already deep in the project your workflow will be seriously disturbed when you keep having to do commits for file changes that you cannot control (for example `thumbs.db`) or have to resolve merge conflicts in outputfiles of your code such as `*.pdf` and `*.html` files. You will find that adding filenames to `.gitignore` that are already tracked will not work. You have to tediously add them manually in your git bash shell.
 
-## setting up `.gitignore`
+### setting up `.gitignore`
 
 - Creating your git project with Rstudio will already add some R/Rstudio files to `.gitignore`.  
 - [Here](https://github.com/github/gitignore/blob/master/R.gitignore) you can find a useful list of files to be added for R projects.  
 
-## Untracking files in hindsight
+### Untracking files in hindsight
 
 **untracking a single file**    
-
-## Untracking files in hindsight
-
-**untracking a single file:**  
-
 ```{}
 git rm --cached [file_name]
 ```
 
 **untracking all files in a directory** 
-
 ```{}
 git rm --cached inst/\*
 ```
 
 **untrack all files of a certain type**  
-
 ```{}
 git rm -r --cached **/*.html
+```
+
+# Navigating in the shell
+
+**switch between branches**
+remember you create them only in the remote/origin repository
+```{}
+git checkout branch
+```
+
+**what's going on?**
+```{}
+git status
+```
+# workflow
+This is the workflow that currently works best for me. My setup is two computers that I use two write on the same R package.
+
+**Principles:**
+- each computer gets its own fork, committing is restricted to only that branch
+- at the beginning of each session the whole repository including all branches is pulled
+- the working branch is rebased (the master branch is merged into the working branch)
+- at the end of each session the working branch is merged into master
+- push all branches
+
+## Pull
+
+**Pull all**
+```{}
+git pull --all
+```
+**pull active branch**
+```{}
+git pull
+```
+
+## commit
+
+
+## Rebase
+
+**rebase active branch**
+```{}
+git rebase
+```
+## Merge
+Merging can be the most annoying part of using git, I tend to have merge conflicts all the time and they are annoying to resolve. I will have an extra section on this further down.
+
+**merge branch into master**
+```{}
+git checkout master
+git merge work_branch
 ```
 
