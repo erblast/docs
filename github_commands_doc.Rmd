@@ -1,0 +1,50 @@
+---
+title: "Github commands"
+author: "OEB"
+date: "October 25, 2017"
+output:
+  html_document: 
+    toc: true
+    toc_depth: 3
+    toc_float: 
+      collapsed: false
+      smooth_scroll: false
+    number_sections: true
+    theme: sandstone
+    df_print: kable  
+    code_folding: show 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
+```
+
+# .gitignore
+
+The `.gitignore` file contains a list of filenames that will be ignored and not and not tracked by git. When you are starting a git project it easy to skip this important file. It is however crucial to set it up before you start coding away. Once you are already deep in the project your workflow will be seriously disturbed when you keep having to do commits for file changes that you cannot control (for example `thumbs.db`) or have to resolve merge conflicts in outputfiles of your code such as `*.pdf` and `*.html` files. You will find that adding filenames to `.gitignore` that are already tracked will not work. You have to tediously add them manually in your git bash shell.
+
+## setting up `.gitignore`
+
+- Creating your git project with Rstudio will already add some R/Rstudio files to `.gitignore`.  
+- [https://github.com/github/gitignore/blob/master/R.gitignore][Here] you can find a useful list of files to be added for R projects.  
+
+## Untracking files in hindsight
+
+**untracking a single file:**  
+
+```{}
+git rm --cached [file_name]
+```
+
+**untracking all files in a directory** 
+
+```{}
+git rm --cached inst/\*
+```
+
+**untrack all files of a certain type** 
+
+```{}
+git rm -r --cached **/*.html
+```
+
