@@ -21,6 +21,12 @@ knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
 # IDE vs Shell
 So far I was not happy with all the IDEs (Rstudio/Gitkraken/Github desktop) that I have tested. They provide some convenient shortcuts but in the end they tended to screw things up for me. That is why I am writing this documentation.
 
+## Advantages of IDEs
+IDEs are mcuh better at visualizing the branches and the commits. They are also much better for resolving merge conflicts (gitkraken).
+
+## Disadvantages of IDEs
+You are always missing a functionality that makes you switch to the Shell. It is better to be literate with the shell commands all together to speed up your workflow.
+
 # The git repository
 The git repository is your project folder, it contains some hidden files and folders that are used by git to track your commits and the branches. If you run git and open your repository you can set the folder to mirror commits or branches. This will actually change the files that you can find with your system explorer.
 
@@ -95,10 +101,32 @@ git pull
 ```
 
 ## commit
+Use `git status` to see a if there are any changes to commit. Commit as often as you like, give resonable namings to you commits. A commit will not work if you do not supply a commit message. Git will let you rollback to any commit you made. Always use the `-m "text"` operator when calling `git commit`, otherwise you will end up will display confusing commit screen.
 
+```{}
+git commit -m "enter message here"
+```
+
+### if you see the confusing commit screen
+you forgot to type `-m "text"`
+
+**hit `ESC` **
+```{}
+:wq
+```
+### git started tracking changes that are meaningless and annoy me
+reset all changes
+```{}
+git reset HEAD --hard
+```
+### i screwed up and made some stupid commits that i want to remove
+**Opt1: roll back to remote branch version**
+```{}
+git reset --hard origin/workbranch
+```
 
 ## Rebase
-
+rebase to update your work branch from master
 **rebase active branch**
 ```{}
 git rebase
@@ -111,4 +139,5 @@ Merging can be the most annoying part of using git, I tend to have merge conflic
 git checkout master
 git merge work_branch
 ```
-
+## Merge conflicts
+Those are tedious to resolve and eat up time that could better be spent coding. If you have them use `git status` to see whats wrong. Open the files with an editor and find the highlighted conflicting code and edit it. (remove the highlights inserted by git and keep the code that is correct). If there is an delete you can either add `git add filename` or remove (`git rm filename`). I think it is best to use this manual approach for a while and develope a disciplined git workflow that makes you avoid these all together. Then when you think you got it right switch to gitkraken to handle your merge conflicts.
