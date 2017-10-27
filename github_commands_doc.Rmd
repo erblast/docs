@@ -92,6 +92,7 @@ This is the workflow that currently works best for me. My setup is two computers
 ## Pull
 
 **Pull all**
+this would be nice to have but it DOES NOT WORK, it fetches from all branches but MERGES ONLY THE ACTIVE BRANCH.
 ```{}
 git pull --all
 ```
