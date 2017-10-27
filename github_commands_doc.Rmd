@@ -30,7 +30,6 @@ You are always missing a functionality that makes you switch to the Shell. It is
 # The git repository
 The git repository is your project folder, it contains some hidden files and folders that are used by git to track your commits and the branches. If you run git and open your repository you can set the folder to mirror commits or branches. This will actually change the files that you can find with your system explorer.
 
-
 # Setup your git repository (when using a remote repository)
 Git gets tricky if you have multiple users or if you synchronize with a remote repository. You constantly have to consider which branch you are in and if you have commited everything and pulled before commit and pushed and merged. It is complicated. To reduce the complexity I would try to do everything you can in the remote repository GUI. On github this means creating the repository itself and all branches directly on github. This means that you do not have to worry about connecting local branches and reposiotries to the remote repository.
 
@@ -127,10 +126,10 @@ git reset --hard origin/workbranch
 ```
 
 ## Rebase
-rebase to update your work branch from master
+rebase to update your work branch from master DO NOT FORGET MASTER in the command. Your branch will not fully merge and stuff will be missing and you will get merge conflicts.
 **rebase active branch**
 ```{}
-git rebase
+git rebase master
 ```
 ## Merge
 Merging can be the most annoying part of using git, I tend to have merge conflicts all the time and they are annoying to resolve. I will have an extra section on this further down.
