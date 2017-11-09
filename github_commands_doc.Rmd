@@ -75,6 +75,7 @@ git checkout branch
 ```
 
 **what's going on?**
+Carefull the status is not always up to date. It seems to not check if the branch was updated from somewhere else than the current computer. It hapenned several times that the reply to the command implied that the current branch is up-to-date with the origin branch but then a pull command would still retrieve changes.
 ```{}
 git status
 ```
