@@ -124,6 +124,17 @@ git reset HEAD --hard
 ```{}
 git reset --hard origin/workbranch
 ```
+## Push
+Push local commits to remote
+
+```{}
+git push
+```
+
+Overwrite remote version
+```{}
+git push origin branch_name -f
+```
 
 ## Rebase
 rebase to update your work branch from master DO NOT FORGET MASTER in the command. Your branch will not fully merge and stuff will be missing and you will get merge conflicts.
