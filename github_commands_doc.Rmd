@@ -125,6 +125,10 @@ git reset HEAD --hard
 ```{}
 git reset --hard origin/workbranch
 ```
+
+### Conveniently I can have the option to ammend one commit to a previous commit. Should I take it?
+No, dont take it. This only work if you have not pushed after your previous commit. If you have pushed you possibly get a merge conflict between origin and the local repository because the two commits are different. This can be very annoying to fix.
+
 ## Push
 Push local commits to remote
 
