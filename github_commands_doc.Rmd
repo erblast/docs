@@ -105,7 +105,7 @@ If you expect changes in you remote repository for your active branch (if your w
 ```{}
 git pull --rebase
 ```
-see (http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/){http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/}, for setting this up permanently
+see http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/, for setting this up permanently
 
 ## commit
 Use `git status` to see a if there are any changes to commit. Commit as often as you like, give resonable namings to you commits. A commit will not work if you do not supply a commit message. Git will let you rollback to any commit you made. Always use the `-m "text"` operator when calling `git commit`, otherwise you will end up will display confusing commit screen.
