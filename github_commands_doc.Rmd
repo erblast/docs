@@ -175,4 +175,23 @@ git log master
 
 git revert 2342jk23l4jl2hg23k4j2h34
 ```
+# Managing branches
+
+## Create branch
+```{}
+
+git checkout -b [name_of_your_new_branch]
+
+```
+
+## Delete branch
+
+```{}
+
+git branch -d [name_of_your_new_branch]
+
+```
+## Versioning
+
+Your `master` branch should always be the branch carrying the latest stable version. Branching off `master` you have a `release` branch  which carries the newest developments. From this you branch off the other branches working on different aspects of the next release. Once the `release` branch is stable it can be merged with `master`
 
