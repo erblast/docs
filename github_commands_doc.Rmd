@@ -33,6 +33,20 @@ The git repository is your project folder, it contains some hidden files and fol
 # Setup your git repository (when using a remote repository)
 Git gets tricky if you have multiple users or if you synchronize with a remote repository. You constantly have to consider which branch you are in and if you have commited everything and pulled before commit and pushed and merged. It is complicated. To reduce the complexity I would try to do everything you can in the remote repository GUI. On github this means creating the repository itself and all branches directly on github. This means that you do not have to worry about connecting local branches and reposiotries to the remote repository.
 
+# Introduce yourself
+
+```{}
+git config --global user.name 'Jennifer Bryan'
+git config --global user.email 'jenny@stat.ubc.ca'
+git config --global --list
+```
+
+# Configure Proxy
+
+```{}
+git config --global http.proxy http://@173.15.80.153:8080
+```
+
 ## clone a repository
 
 open the directory you want to clone the repository in right click and select `git bash here`
