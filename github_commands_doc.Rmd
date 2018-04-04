@@ -228,3 +228,15 @@ git branch -d [name_of_your_new_branch]
 
 Your `master` branch should always be the branch carrying the latest stable version. Branching off `master` you have a `release` branch  which carries the newest developments. From this you branch off the other branches working on different aspects of the next release. Once the `release` branch is stable it can be merged with `master`
 
+## Remove files from the history
+
+Sometimes you might need to remove files from prior commits, either you carelessly commited large binary files which are bloating up your history, or some of the history contains sensitive information like passwords.
+
+Here is some sample code that will remove the file `large_binary.Data` from all commits in on specific branch
+
+```{}
+
+git filter-branch --tree-filter 'rm -f large_binary.Data' HEAD
+
+```
+
