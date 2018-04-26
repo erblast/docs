@@ -56,7 +56,7 @@ git init
 setup .gitignore (see instruction further down)
 
 ```{}
-git add.
+git add .
 git commit -m 'message'
 ```
 
@@ -100,10 +100,10 @@ The `.gitignore` file contains a list of filenames that will be ignored and not 
 
 ### Creating `.gitignore` from scratch
 windows will not let you create files with a file name starting with '.'
-use the command line
+use the windows command line tool
 
 ```{}
-gitignore ren .gitignore
+rename gitignore.txt .gitignore
 ```
 
 ### Untracking files in hindsight
