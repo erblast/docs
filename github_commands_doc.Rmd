@@ -45,7 +45,23 @@ git config --global --list
 ```{}
 git config --global http.proxy http://@173.15.80.153:8080
 ```
-# Setup your git repository (when using a remote repository)
+# Setup local git without remote repos and RStudio
+
+start with
+
+```{}
+git init
+```
+
+setup .gitignore (see instruction further down)
+
+```{}
+git add.
+git commit -m 'message'
+```
+
+
+# Setup local git repository with remote repository
 
 ## starting with a local repository
 
@@ -81,6 +97,14 @@ The `.gitignore` file contains a list of filenames that will be ignored and not 
 
 - Creating your git project with Rstudio will already add some R/Rstudio files to `.gitignore`.  
 - [Here](https://github.com/github/gitignore/blob/master/R.gitignore) you can find a useful list of files to be added for R projects.  
+
+### Creating `.gitignore` from scratch
+windows will not let you create files with a file name starting with '.'
+use the command line
+
+```{}
+gitignore ren .gitignore
+```
 
 ### Untracking files in hindsight
 
