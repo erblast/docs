@@ -1,0 +1,8 @@
+# `conda`
+This is a compilation of a few terminal commands for managing different python environments using `conda`
+
+## Check installation
+```
+conda --version
+```
+
