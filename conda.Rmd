@@ -1,8 +1,31 @@
 # `conda`
-This is a compilation of a few terminal commands for managing different python environments using `conda`
+This is a compilation of a few terminal commands for managing different python environments using `conda`, which a brief introduction also pointing to the alternatives of `conda` environments. As a disclaimer I will use `conda` as a synonyme `anaconda`, the former is the abbreviated command you use inside your terminal.
+
+## Introduction
+One of the components of producing reproducible code in data science is portability. Often your code will not run on another machine even if code and underlying data source have not been changed because of variations in the installation of the programming languages that you have been using. A typical data science project can depend on a number of installations on your machine. To name a few of them
+
+- `R` *
+- `R packages` *
+- `python` *
+- `python packages` *
+- `pip`
+- `git`
+- `Java`
+- `a C++ compiler`
+- `pandoc`
+- `latex`
+
+The most important being `R` and `python` and the underlying packages which usually shoulder the workload of your code. There are a number of strategies to reproducibly preserve either your `python` or your `R` environment. For R there is `packarat` and `checkpoint` and for `python` there is the `pip freeze` command, which preserves all packages and version in a `requirements.txt` file.
+
+
+
 
 ## Check installation
 ```
 conda --version
 ```
+
+## Create an environment
+Anaconda lets us create environments of specific `python` versions and packages. Both packages and python are managed by `anaconda`. A list of all supported packages can be found [here](https://docs.anaconda.com/anaconda/packages/pkg-docs) and more specifically for [mac 64x python 3.6](https://docs.anaconda.com/anaconda/packages/py3.6_osx-64). **Every `anaconda` environment that we create will be platform specific.** Recreating an environment on another platform might not always work. Here `docker` probably has the advantage or even `kaggle` kernels probably do not have that limitation.
+
 
