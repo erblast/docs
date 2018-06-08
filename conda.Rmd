@@ -98,6 +98,28 @@ here I included a sensible collection of data science packages, including tools 
 ```
 conda install pandas pytest pytest-doctestplus plotly matplotlib numpy seaborn scipy statsmodels r-essentials pip rstudio
 ```
+### Install packages from external sources
+This is where it gets complicated and where the situation is different for `R` and `python`. We could simply install packages from other sources (github, CRAN) but `anaconda` will not track them and thus the environment will not be reproducible. 
+
+**If available always use anaconda sources**
+
+We can easily find them by googeling the package name together with `anaconda`. **For python packages it is easier we can simply pip install them and the installation will be tracked given that the `anaconda` environment is activated.**
+
+### Install packages that need to be built/compiled
+This includes all packages from github and self-developed packages. Your `anaconda` environment should already contain the OS-specific compilers.
+
+#### CRAN
+
+```
+conda skeleton cran r-xgboost
+conda build r-xgboost
+conda install --use-local r-xgboost
+```
+## None standard channels
+
+conda config --add channels conda-forge 
+
+**If available always use anaconda sources**
 
 ## List packages
 
