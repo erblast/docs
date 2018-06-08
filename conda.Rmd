@@ -1,7 +1,8 @@
 # `conda`
-This is a compilation of a few terminal commands for managing different python environments using `conda`, which a brief introduction also pointing to the alternatives of `conda` environments. As a disclaimer I will use `conda` as a synonyme `anaconda`, the former is the abbreviated command you use inside your terminal.
+This is a compilation of a few terminal commands for managing different python environments using `conda`, with a brief introduction also pointing to the alternatives of `conda` environments. As a disclaimer I will use `conda` as a synonyme `anaconda`, the former is the abbreviated command you use inside your terminal.
 
 ## Introduction
+
 One of the components of producing reproducible code in data science is portability. Often your code will not run on another machine even if code and underlying data source have not been changed because of variations in the installation of the programming languages that you have been using. A typical data science project can depend on a number of installations on your machine. To name a few of them
 
 - `R` *
@@ -14,10 +15,24 @@ One of the components of producing reproducible code in data science is portabil
 - `a C++ compiler`
 - `pandoc`
 - `latex`
+- `phantom js`
 
-The most important being `R` and `python` and the underlying packages which usually shoulder the workload of your code. There are a number of strategies to reproducibly preserve either your `python` or your `R` environment. For R there is `packarat` and `checkpoint` and for `python` there is the `pip freeze` command, which preserves all packages and version in a `requirements.txt` file.
+The most important being `R` and `python` and the underlying packages which usually shoulder the workload of your code.
+
+Then there is you machine in itself which has a specific get up:
+
+- OS (32bit, 64bit)
+- environment variable
+- Hardware (number of cores, RAM, GPU)
+
+There are a number of strategies to reproducibly preserve either your `python` or your `R` environment. For R there is `packrat` and `checkpoint` and for `python` there is the `pip freeze` command, which preserves all packages and version in a `requirements.txt` file.
+
+However these solutions are focused on snapshotting the programming language environment and do not consider any of the other tools and system configurations that might be necessary to run your code. 
+
+`conda` environmnents use a bit of a more wholistic approach, they too are focused on you programming language and the packages that are installed with it, but they provide a strategy for handling `R` and `python` simultaneously and they have a list of packages which they offer their own support for. Meaning you can download the packages from a `conda` server and they are garanteed to be compatible with each other as long as they are being installed at the same time. However the `conda` environments are not garanteed to be platform independent. The list of supported packages depends on the OS. However anaconda will make an effort to replicate the environment as closely as possible
 
 
+The state of the art solution is a `docker` container, which containerizes everything (tools, drivers, environment variables, etc), this eases pushing code into procuction  as explained [here](https://www.dataquest.io/blog/docker-data-science/). There are even solutions for systems with specialized hardware configurations such as GPUs, as explained [here](https://indico.io/data-science-deployments-docker/)
 
 
 ## Check installation
