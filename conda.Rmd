@@ -71,7 +71,7 @@ conda --version
 ## Create an environment
 that contains `python` and `R`
 ```
-conda create --name myenv python - r
+conda create --name myenv python=3.6 r=3.4.1
 ```
 
 
@@ -110,14 +110,32 @@ This includes all packages from github and self-developed packages. Your `anacon
 
 #### CRAN
 
+this will download the repository to your current work directory
+```
+conda skeleton cran r-xgboost
+```
+
 ```
 conda skeleton cran r-xgboost
 conda build r-xgboost
 conda install --use-local r-xgboost
 ```
+
+### Upload builds to `anaconda`
+make sure to create an `anaconda` account first.
+
+```
+anaconda login
+conda build r-xgboost
+conda config --set anaconda_upload yes
+anaconda logout
+
+```
+
 ## None standard channels
 
-conda config --add channels conda-forge 
+conda config --append channels conda-forge
+conda config --append channels bioconda
 
 **If available always use anaconda sources**
 
