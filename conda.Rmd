@@ -91,22 +91,58 @@ conda deactivate
 conda remove -name myenv --all
 ```
 
-## Install packages
+## Install packages and apps
 
-### Install packages from anaconda servers
-here I included a sensible collection of data science packages, including tools such as pip and rstudio
+### Channels
+An important issue for `anaconda` are the channels where we can find tha packages that we want to install in our `anaconda` environments. Each environment contains a list of channels which will be searched from top to bottom for a package that we would like to install. `anaconda` will always prioritize the channel over the version number thus might not always install the latest versions. Each environment starts with the channel `defaults` which are the official channels
+
+#####Add a channel to the bottom of the list
+You want to make sure that the defaults channels rank high thus I recommend appending all new channels.
 ```
-conda install pandas pytest pytest-doctestplus plotly matplotlib numpy seaborn scipy statsmodels r-essentials pip rstudio
+conda config --append conda-forge bioconductor
 ```
+
+#####Add a channel to the top of the list
+here you want to add your own channel containing your anaconda builds. 
+```
+conda config --prepend mychannel conda-forge
+```
+
+### Install packages without build/compilation
+
+*make sure the environment that you want to install to is active*
+
+*we can install apps such as Rstudio, pip, etc (see anaconda launcher with the same synthax)*
+
+##### from listed channel
+```
+conda install package_name
+```
+
+#### from pip
+```
+conda install pip
+pip install package_name
+pip install git+repos_url
+```
+
+### Install packages with build/compilation
+
+We need to downlaod the source code of the package, then compile it using `anaconda` and upload it to a public channel. 
+
+#### Create an anaconda account and login
+
+
+
 ### Install packages from external sources
-This is where it gets complicated and where the situation is different for `R` and `python`. We could simply install packages from other sources (github, CRAN) but `anaconda` will not track them and thus the environment will not be reproducible. 
+This is where it gets complicated and where the situation is different for `R` and `python`. We could simply install packages from other sources (github, CRAN) manually in `R` (`install.packages()` or `devtools`) but `anaconda` will not track them and thus the environment will not be reproducible. 
 
-**If available always use anaconda sources**
+**If available always use anaconda sources, however they are often outdated.**
 
 We can easily find them by googeling the package name together with `anaconda`. **For python packages it is easier we can simply pip install them and the installation will be tracked given that the `anaconda` environment is activated.**
 
 ### Install packages that need to be built/compiled
-This includes all packages from github and self-developed packages. Your `anaconda` environment should already contain the OS-specific compilers.
+This includes all packages from github/ CRAN/ self-developments. Some of them will nee
 
 #### CRAN
 
@@ -158,5 +194,5 @@ conda list -name myenv pandas
 ### exporting an environment to share
 activate the environment that you want to export. It will save a `.yml` file into the current working directory
 ```
-conda env export myenv.yml
+conda env export -f myenv.yml
 ```
