@@ -10,3 +10,8 @@ ls
 ```
 rm -r mydir
 ```
+## Make directory
+```
+mkdir mydir
+```
+
