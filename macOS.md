@@ -13,6 +13,9 @@ Allows windows like grid layout on mac. [link](https://itunes.apple.com/us/app/m
 Makes the terminal window look like the git bash shell in windows. The advantage is that the command line indicates
 which branch of the git repository you are in. [link](https://github.com/fabriziocucci/git-bash-for-mac)
 
+### Add copy to path feature
+In windows we are used to copying the path of a file via shift + right click menu. With a mac we need to create the featue using the `automator` which is some kind of macro builder. The procedure is described [here](http://osxdaily.com/2013/06/19/copy-file-folder-path-mac-os-x/)
+
 ## Shortcuts
 
 The keyboard layout is a bit weird some characters are just not on my keyboard. We can find a lot of the special
