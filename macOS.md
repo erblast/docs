@@ -19,7 +19,9 @@ The keyboard layout is a bit weird some characters are just not on my keyboard. 
 characters in the menu bar. `edit` -> `emoji and symbols`
 
 - <kbd>⌥ + 5 </kbd> and <kbd>⌥ + 6 </kbd> -> `[]`
-- <kbd> + N </kbd>  -> `~`
+- <kbd> ⌥ + N </kbd>  -> `~`
+- <kbd> ⌥ + 7 </kbd>  -> `|`
+- <kbd> ⌥ + ⇧ + 7 </kbd>  -> `\`
 - <kbd> ⌘ + ⇧ + 4 </kbd>  -> `screenshot tool`
 - <kbd> ⌘ + → </kbd>  -> `end of line`
 - <kbd> ⌘ + ← </kbd>  -> `start of line`
