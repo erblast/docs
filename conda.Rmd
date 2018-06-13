@@ -96,16 +96,16 @@ conda remove -name myenv --all
 ### Channels
 An important issue for `anaconda` are the channels where we can find tha packages that we want to install in our `anaconda` environments. Each environment contains a list of channels which will be searched from top to bottom for a package that we would like to install. `anaconda` will always prioritize the channel over the version number thus might not always install the latest versions. Each environment starts with the channel `defaults` which are the official channels
 
-#####Add a channel to the bottom of the list
+##### Add a channel to the bottom of the list
 You want to make sure that the defaults channels rank high thus I recommend appending all new channels.
 ```
-conda config --append conda-forge bioconductor
+conda config --append channels conda-forge bioconductor
 ```
 
-#####Add a channel to the top of the list
+##### Add a channel to the top of the list
 here you want to add your own channel containing your anaconda builds. 
 ```
-conda config --prepend mychannel conda-forge
+conda config --prepend channels anaconda_username
 ```
 
 ### Install packages without build/compilation
