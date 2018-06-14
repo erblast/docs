@@ -196,3 +196,10 @@ activate the environment that you want to export. It will save a `.yml` file int
 ```
 conda env export -f myenv.yml
 ```
+
+### convert packages to other formats
+
+```
+for f in *.bz2; do conda convert -f --platform linux-64 -o ../linux-64 $f; done
+```
+
