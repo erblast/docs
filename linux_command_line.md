@@ -14,4 +14,14 @@ rm -r mydir
 ```
 mkdir mydir
 ```
-
+## Loop through all files of type in directory
+```
+for f in *.bz2
+do 
+  echo $f
+done
+```
+can be written as
+```
+for f in *.bz2; do echo $f; done
+```
