@@ -69,9 +69,9 @@ conda --version
 ```
 
 ## Create an environment
-that contains `python` and `R`
+that contains `python` and `R`, we are specifiying r-base because conda will install the microsoft R distribution by default.
 ```
-conda create --name myenv python=3.6 r=3.4.1
+conda create --name myenv python=3.6 r-base=3.4.3
 ```
 
 
@@ -127,6 +127,28 @@ pip install git+repos_url
 ```
 
 ### Install packages with build/compilation
+This will be mostly required for `R` packages that cannot be found on `anaconda` ressources which unfortunately is true for most of the packages. Managing your `R` packages with `anaconda` takes a long time to set up if you already start with a large set of package requirements and can be efficient if you gradually build it up as you go. However you will not be cross platform compatible. You will have to more or less go through the same iterative steps on each platform you want to be compatible with. The reason is that `R` packages containing `C++` or `Fortran` code need different compilers depending on the operating system that you use. Some of these compilers are not referenced directly but they reference to another `R` package which is at the base of the dependency trail. There is the option of converting you package builds compiled on one platform to another which will work for the majority of the packages but not for all.
+
+This is an outline of the general workflow setting up an R environment for one platform
+1. create an anaconda account where you will upload your packages to
+2. enable automatic uploading after package building
+3. create an environment inlcuding python, R, and r-essentials.
+4. add personal R channel to the top of you channels list
+5. add bioconductor and conda-forge to the end of your channels list
+6. identify a package that you want to add to your environment which is not available from an anaconda source
+7. download a skeleton from CRAN
+8. build/compile the package
+ 8a. anaconda will create test environment in which the package will be built based on the requirements saved in the skeleton. For `R` packages it will only detect dependencies in the `DESCRIPTION` file.
+ 8b. anaconda will look for the required packages in the channels and try to install whatever it finds. It will list all packages and sources it will install from. If it cannot find the necessary packages it will fail.
+9. Troubleshoot if compiling/building fails
+ 9a. Try to skim the error message for the incompatible package, however the error message is not always meaningful
+ 9a. `R` Packages from conda-forge and bioconductor are likely to be outdated get them from CRAN as skeleton instead
+ 9b. `R` packages have the `R` version that they were compiled for attached to the version number. Check if that matches the `r-base` version of your environment
+ 9c. Packages that come from you own reposittory but have initially been built for another platform and contain `C++` or `Fortran` code must likely be rebuilt from skeleton for your present platform. 
+ 
+ 
+ 
+
 
 We need to downlaod the source code of the package, then compile it using `anaconda` and upload it to a public channel. 
 
