@@ -180,6 +180,7 @@ This will be mostly required for `R` packages that cannot be found on `anaconda`
  - mda
  - party
  - cubist
+ - kknn
  - rlang (part of r-essentials but better to install the newest version)
  
  
@@ -207,7 +208,7 @@ conda skeleton cran https://github.com/erblast/ggplot2.git
 
 #### Build packages from skeleton
 
-we have to ad a `r-` prefix to the package name
+we have to ad a `r-` prefix to the package name and put the package name in *lowercase*
 ```
 conda build r-rlang
 ```
