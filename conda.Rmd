@@ -138,14 +138,26 @@ This is an outline of the general workflow setting up an R environment for one p
 6. identify a package that you want to add to your environment which is not available from an anaconda source
 7. download a skeleton from CRAN
 8. build/compile the package
- 8a. anaconda will create test environment in which the package will be built based on the requirements saved in the skeleton. For `R` packages it will only detect dependencies in the `DESCRIPTION` file.
- 8b. anaconda will look for the required packages in the channels and try to install whatever it finds. It will list all packages and sources it will install from. If it cannot find the necessary packages it will fail.
+  8a. anaconda will create test environment in which the package will be built based on the requirements saved in the skeleton. For `R` packages it will only detect dependencies in the `DESCRIPTION` file.
+  8b. anaconda will look for the required packages in the channels and try to install whatever it finds. It will list all packages and sources it will install from. If it cannot find the necessary packages it will fail.
 9. Troubleshoot if compiling/building fails
- 9a. Try to skim the error message for the incompatible package, however the error message is not always meaningful
- 9a. `R` Packages from conda-forge and bioconductor are likely to be outdated get them from CRAN as skeleton instead
- 9b. `R` packages have the `R` version that they were compiled for attached to the version number. Check if that matches the `r-base` version of your environment
- 9c. Packages that come from you own reposittory but have initially been built for another platform and contain `C++` or `Fortran` code must likely be rebuilt from skeleton for your present platform. 
+  9a. Try to skim the error message for the incompatible package, however the error message is not always meaningful
+  9a. `R` Packages from conda-forge and bioconductor are likely to be outdated get them from CRAN as skeleton instead
+  9b. `R` packages have the `R` version that they were compiled for attached to the version number. Check if that matches the `r-base` version of your environment
+  9c. Packages that come from you own repository but have initially been built for another platform and contain `C++` or `Fortran` code must likely be rebuilt from skeleton for your present platform. 
  
+ #### List of R packages that contain `C++` or `fortran` and are not part of r-essentials
+ - fastmatch
+ - ff
+ - ffbase
+ - bit
+ - spam
+ - maps
+ - dotcall64
+ - fields
+ - spam
+ - mda
+ - rlang (part of r-essentials but better to install the newest version)
  
  
 
