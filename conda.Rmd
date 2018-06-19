@@ -224,6 +224,11 @@ activate the environment that you want to export. It will save a `.yml` file int
 conda env export -f myenv.yml
 ```
 
+#### Build environment based on .yml file
+```
+conda env create -f environment.yml
+```
+
 #### Convert packages to other formats
 This did only work for me when trying to convert from OS-64 to linux-64, Then I could not use any of the converted packages that contained `C++` or `Fortran` code even if it seemed to work at the beginning.
 
