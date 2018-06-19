@@ -114,6 +114,8 @@ conda config --prepend channels anaconda_username
 
 *we can install apps such as Rstudio, pip, etc (see anaconda launcher with the same synthax)*
 
+* do not use `R; install.packages()`, packages installed that way cannot be tracked
+
 ##### from listed channel
 ```
 conda install package_name
@@ -129,7 +131,8 @@ pip install git+repos_url
 ### Install packages with build/compilation
 This will be mostly required for `R` packages that cannot be found on `anaconda` ressources which unfortunately is true for most of the packages. Managing your `R` packages with `anaconda` takes a long time to set up if you already start with a large set of package requirements and can be efficient if you gradually build it up as you go. However you will not be cross platform compatible. You will have to more or less go through the same iterative steps on each platform you want to be compatible with. The reason is that `R` packages containing `C++` or `Fortran` code need different compilers depending on the operating system that you use. Some of these compilers are not referenced directly but they reference to another `R` package which is at the base of the dependency trail. There is the option of converting you package builds compiled on one platform to another which will work for the majority of the packages but not for all.
 
-This is an outline of the general workflow setting up an R environment for one platform
+#### Workflow outline for creating an `R` environment
+
 1. create an anaconda account where you will upload your packages to
 2. enable automatic uploading after package building
 3. create an environment inlcuding python, R, and r-essentials.
@@ -144,7 +147,8 @@ This is an outline of the general workflow setting up an R environment for one p
     - Try to skim the error message for the incompatible package, however the error message is not always meaningful  
     - `R` Packages from conda-forge and bioconductor are likely to be outdated get them from CRAN as skeleton instead  
     - `R` packages have the `R` version that they were compiled for attached to the version number. Check if that matches the `r-base` version of your environment  
-  - Packages that come from you own repository but have initially been built for another platform and contain `C++` or `Fortran` code must likely be rebuilt from skeleton for your present platform.   
+  - Packages that come from you own repository but have initially been built for another platform and contain `C++` or `Fortran` code must likely be rebuilt from skeleton for your present platform.
+10. If building/compilation was successfull the package will be uploaded to our anaconda repository from where it can be installed
  
  #### List of R packages that contain `C++` or `fortran` and are not part of r-essentials
  - fastmatch
@@ -160,13 +164,16 @@ This is an outline of the general workflow setting up an R environment for one p
  - rlang (part of r-essentials but better to install the newest version)
  
  
+#### Create an anaconda account and login, activate automated upload
+create the account on [anaconda.org](https://anaconda.org)
 
-
-We need to downlaod the source code of the package, then compile it using `anaconda` and upload it to a public channel. 
+```
+anaconda anaconda login
+conda config --set anaconda_upload yes
+# anaconda logout
+```
 
 #### Create an anaconda account and login
-
-
 
 ### Install packages from external sources
 This is where it gets complicated and where the situation is different for `R` and `python`. We could simply install packages from other sources (github, CRAN) manually in `R` (`install.packages()` or `devtools`) but `anaconda` will not track them and thus the environment will not be reproducible. 
