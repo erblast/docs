@@ -194,7 +194,11 @@ conda config --set anaconda_upload yes
 
 #### Download skeleton form CRAN/github
 
+#### github release tags
 anaconda will automatically checkout out the master branch with the latest release tag of packages from github. Often repository owners do not assign release tags or only if a major version increment has been made. Therefore it is best to fork the repository to a personal public github account and then apply any missing release tags.
+
+#### github dependencies
+`R` packages from github do not have to pass any quality checks as they need to for being uploaded to CRAN. Therefore it can happen that not all dependencies from the `NAMESPACE` file are also listed in the `DESCRIPTION` file. In such a case the testing environment for creating a conda build will not be sufficient.
 
 ```
 conda skeleton cran rlang
