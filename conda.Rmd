@@ -44,8 +44,8 @@ However these solutions are focused on snapshotting the programming language env
 ### Environment-based solutions (`anaconda`)
 `conda` environmnents use a bit of a more holistic approach and strive to encapsulate apps and programming languages including the packages. They provide a strategy for handling `R` and `python` simultaneously and they have a set of packages for which they offer their own support for. Meaning you can download the packages from a `conda` server and they are garanteed to be compatible with each other as long as they are being installed at the same time. However the `conda` environments are not garanteed to be platform independent. The list of supported packages depends on the OS. However anaconda will make an effort to replicate the environment as closely as possible. 
 
-[list of all `python` packages managed by `anaconda`](https://docs.anaconda.com/anaconda/packages/pkg-docs)
-[list of all `R` packages managed by `anaconda`](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs)
+- [list of all `python` packages managed by `anaconda`](https://docs.anaconda.com/anaconda/packages/pkg-docs)  
+- [list of all `R` packages managed by `anaconda`](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs)
 
 
 ### Container-based solutions
