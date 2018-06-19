@@ -36,14 +36,13 @@ Then there is you machine in itself which has a specific get up:
 - Hardware (number of cores, RAM, GPU)
 
 
-
 ### Programming language-based solutions
 There are a number of strategies to reproducibly preserve either your `python` or your `R` environment. For R there is `packrat` and `checkpoint` and for `python` there is the `pip freeze` command, which preserves all packages and version in a `requirements.txt` file.
 
 However these solutions are focused on snapshotting the programming language environment and do not consider any of the other tools and system configurations that might be necessary to run your code. 
 
 ### Environment-based solutions (`anaconda`)
-`conda` environmnents use a bit of a more holistic approach, they too are focused on your programming language and the packages that are installed with it, but they provide a strategy for handling `R` and `python` simultaneously and they have a set of packages for which they offer their own support for. Meaning you can download the packages from a `conda` server and they are garanteed to be compatible with each other as long as they are being installed at the same time. However the `conda` environments are not garanteed to be platform independent. The list of supported packages depends on the OS. However anaconda will make an effort to replicate the environment as closely as possible. 
+`conda` environmnents use a bit of a more holistic approach and strive to encapsulate apps and programming languages including the packages. They provide a strategy for handling `R` and `python` simultaneously and they have a set of packages for which they offer their own support for. Meaning you can download the packages from a `conda` server and they are garanteed to be compatible with each other as long as they are being installed at the same time. However the `conda` environments are not garanteed to be platform independent. The list of supported packages depends on the OS. However anaconda will make an effort to replicate the environment as closely as possible. 
 
 [list of all `python` packages managed by `anaconda`](https://docs.anaconda.com/anaconda/packages/pkg-docs)
 [list of all `R` packages managed by `anaconda`](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs)
@@ -93,6 +92,16 @@ conda remove -name myenv --all
 
 ## Install packages and apps
 
+### Install MacOS SDK
+`anaconda` not only contains packages but also apps and other programs. It also contains a set of compilers. For licensing reasons the MacOS SDK cannot be included and needs to be installed seperately as explained [here](https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html). MacOS SDK can be downloaded [here](https://github.com/phracker/MacOSX-SDKs) I suggest to download the version that matches the version number of your installed macOS.
+
+Add the following code to your `conda_build_config.yaml`
+```
+CONDA_BUILD_SYSROOT:
+  - /opt/MacOSX10.9.sdk        # [osx]
+```
+
+
 ### Channels
 An important issue for `anaconda` are the channels where we can find tha packages that we want to install in our `anaconda` environments. Each environment contains a list of channels which will be searched from top to bottom for a package that we would like to install. `anaconda` will always prioritize the channel over the version number thus might not always install the latest versions. Each environment starts with the channel `defaults` which are the official channels
 
@@ -116,16 +125,8 @@ conda config --prepend channels anaconda_username
 
 *do not use `R; install.packages()`, packages installed that way cannot be tracked*
 
-### Install MacOS SDK
-`anaconda` not only contains packages but also apps and other programs. It also contains a set of compilers. For licensing reasons the MacOS SDK cannot be included and needs to be installed seperately as explained [here](https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html). MacOS SDK can be downloaded [here](https://github.com/phracker/MacOSX-SDKs) I suggest to download the version that matches the version number of your installed macOS.
 
-Add the following code to your `conda_build_config.yaml`
-```
-CONDA_BUILD_SYSROOT:
-  - /opt/MacOSX10.9.sdk        # [osx]
-```
-
-##### Install from listed channel
+#### Install from listed channel
 ```
 conda install package_name
 ```
