@@ -1,5 +1,5 @@
 # `conda`
-This is a compilation of a few terminal commands for managing different python environments using `conda`, with a brief introduction also pointing to the alternatives of `conda` environments. As a disclaimer I will use `conda` as a synonyme `anaconda`, the former is the abbreviated command you use inside your terminal.
+This is a compilation of a few terminal commands for managing different python environments using `conda`, with a brief introduction also pointing to the alternatives of `conda` environments. As a disclaimer I will use `conda` and `anaconda` as synonyms, the former is the abbreviated command you use inside your terminal.
 
 ## Introduction Code Reproducibility
 
