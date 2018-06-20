@@ -79,6 +79,13 @@ will add your environment to your command line
 ```
 conda activate myenv
 ```
+
+on older versions of conda
+will add your environment to your command line
+```
+source activate myenv
+```
+
 ## Deactivate environment
 will remove your environment from your command line
 
@@ -181,6 +188,7 @@ This will be mostly required for `R` packages that cannot be found on `anaconda`
  - party
  - cubist
  - kknn
+ - gamlss
  - rlang (part of r-essentials but better to install the newest version)
  
  
