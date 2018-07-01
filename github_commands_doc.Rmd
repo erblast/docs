@@ -280,3 +280,13 @@ rm -rf submodule_path/.git     # make sure you have backup!!
 git add submodule_path         # will add files instead of commit reference
 git commit -m "remove submodule"
 ```
+
+## Release Tags
+It is good practice to add a release tag after bumping up the version of your repository. It is the easiest to to this via the github website interface. However if you made a mistake and want to remove your current release because you made a typo github will not remove your release tag entirely but simply mark it as deleted which prevents you from creating a new tag with the same name. Thus we can use the following console command to delete it completely ([source](https://gist.github.com/mobilemind/7883996)).
+
+```
+# delete local tag '12345'
+git tag -d 12345
+# delete remote tag '12345' (eg, GitHub version too)
+git push origin :refs/tags/12345
+```
