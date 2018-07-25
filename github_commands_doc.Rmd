@@ -189,6 +189,10 @@ git reset HEAD --hard
 git reset --hard origin/workbranch
 ```
 
+**Opt2: undo last commit
+```
+git reset HEAD~
+```
 ### Should I amend to previous commits?
 No, dont do it. This only work if you have not pushed after your previous commit. If you have pushed you possibly get a merge conflict between origin and the local repository because the two commits are different. You can however fix this by rebasing the remote branch.
 
