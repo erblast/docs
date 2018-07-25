@@ -189,7 +189,7 @@ git reset HEAD --hard
 git reset --hard origin/workbranch
 ```
 
-**Opt2: undo last commit
+**Opt2: undo last commit**  
 ```
 git reset HEAD~
 ```
