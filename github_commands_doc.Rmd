@@ -252,6 +252,15 @@ git checkout -b [name_of_your_new_branch]
 git branch -d [name_of_your_new_branch]
 
 ```
+
+## Accidently worked on the wrong branch
+Sometimes you want to commit your changes and realize that you were working in master instead of your release or feature branch
+```
+git stash
+git checkout branch123
+git stash apply
+```
+
 ## Versioning
 
 Your `master` branch should always be the branch carrying the latest stable version. Branching off `master` you have a `release` branch  which carries the newest developments. From this you branch off the other branches working on different aspects of the next release. Once the `release` branch is stable it can be merged with `master`
