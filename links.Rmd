@@ -1,5 +1,0 @@
-
-# Useful links for coding workflow
-
-- [rmakdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-- [roxygen2 synthax](http://r-pkgs.had.co.nz/man.html#text-formatting)
